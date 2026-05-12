@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melodix — Музыкальный плеер</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-music"></i>
+            <span>Melodix</span>
+        </div>
+        
+        <nav class="nav">
+            <a href="#" class="nav-item active" onclick="switchTab(0)">
+                <i class="fas fa-home"></i>
+                <span>Главная</span>
+            </a>
+            <a href="#" class="nav-item" onclick="switchTab(1)">
+                <i class="fas fa-list-ul"></i>
+                <span>Плейлисты</span>
+            </a>
+            <a href="#" class="nav-item" onclick="switchTab(2)">
+                <i class="fas fa-user"></i>
+                <span>Профиль</span>
+            </a>
+        </nav>
+        
+        <div class="playlists-header">
+            <span>ПЛЕЙЛИСТЫ</span>
+            <i class="fas fa-plus" style="cursor:pointer;" onclick="createPlaylist()"></i>
+        </div>
+        
+        <div class="playlist-list" id="playlist-list"></div>
+        
+        <div class="sidebar-footer">
+            <div class="nav-item" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Выйти</span>
+            </div>
+        </div>
+    </aside>
+    
+    <div class="main">
+        <header class="header">
+            <div class="header-left">
+                <button onclick="toggleSidebar()" class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" 
+                           placeholder="Поиск треков, исполнителей..." 
+                           onkeyup="handleSearch(event)">
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="nav-item">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="user-info">
+                    <div class="avatar">В</div>
+                    
+                </div>
+            </div>
+        </header>
+        <main class="content" id="main-content">
+            <div class="section-title">
+                <i class="fas fa-music"></i>
+                <span>Популярное сегодня</span>
+            </div>
+            
+            <div class="song-list" id="song-list"></div>
+        </main>
+        <footer class="player">
+            <div class="now-playing" id="now-playing">
+                <div class="now-cover" id="now-cover">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div>
+                    <div id="now-title" class="now-title">Выберите трек</div>
+                    <div id="now-artist" class="now-artist">—</div>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="player-controls">
+                    <i class="fas fa-random player-btn" onclick="toggleShuffle()"></i>
+                    <i class="fas fa-step-backward player-btn" onclick="prevTrack()"></i>
+                    <i class="fas fa-play-circle player-btn-primary" id="play-pause-btn" onclick="togglePlay()"></i>
+                    <i class="fas fa-step-forward player-btn" onclick="nextTrack()"></i>
+                    <i class="fas fa-redo player-btn" onclick="toggleRepeat()"></i>
+                </div>
+                
+                <div class="progress-bar" id="progress-bar" onclick="seek(event)">
+                    <div class="progress" id="progress"></div>
+                </div>
+                
+                <div class="time">
+                    <span id="current-time">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+            
+            <div class="volume-control">
+                <i class="fas fa-volume-up"></i>
+                <input type="range" min="0" max="100" value="80" id="volume-slider" oninput="setVolume(this.value)">
+            </div>
+        </footer>
+    </div>
+    
+    <audio id="audio-player"></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
