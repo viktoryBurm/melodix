@@ -548,13 +548,22 @@ function init() {
 
     searchTracks("top hits 2025");
 
+    document.addEventListener('click', (e) => {
+        const sidebar = document.querySelector('.sidebar');
+        const menuBtn = document.querySelector('.menu-btn');
+        
+        if (window.innerWidth <= 768 && 
+            !sidebar.contains(e.target) && 
+            !menuBtn.contains(e.target)) {
+            sidebar.classList.remove('open');
+        }
+    });
 
     document.addEventListener('keydown', e => {
         if (e.code === 'Space' && 
             (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
             return;
         }
-
         if (e.code === 'Space') {
             e.preventDefault();
             player.togglePlay();
@@ -563,7 +572,7 @@ function init() {
         if (e.code === 'ArrowLeft') player.prevTrack();
     });
 
-    console.log('%cMelodix успешно запущен ✅', 'color:#7b4dff;font-size:16px;font-weight:bold;');
+    console.log('%cMelodix успешно запущен', 'color:#7b4dff;font-size:16px;font-weight:bold;');
 }
 
 window.onload = init;
