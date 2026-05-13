@@ -541,6 +541,20 @@ function loadProfile() {
 
 const player = new MusicPlayer();
 
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('open');
+    
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('open');
+            }
+        }, { once: true });
+    });
+}
+
 function init() {
     loadFromLocalStorage();
     loadProfile();
@@ -576,17 +590,3 @@ function init() {
 }
 
 window.onload = init;
-
-function toggleSidebar() {
-    const sidebar = document.querySelector('.sidebar');
-    sidebar.classList.toggle('open');
-    
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                sidebar.classList.remove('open');
-            }
-        }, { once: true });
-    });
-}
