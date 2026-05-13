@@ -543,18 +543,10 @@ const player = new MusicPlayer();
 
 function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
-    sidebar.classList.toggle('open');
-    
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                sidebar.classList.remove('open');
-            }
-        }, { once: true });
-    });
+    if (sidebar) {
+        sidebar.classList.toggle('open');
+    }
 }
-
 function init() {
     loadFromLocalStorage();
     loadProfile();
