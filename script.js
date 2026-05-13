@@ -505,6 +505,10 @@ function switchTab(tab) {
         titleEl.textContent = 'Профиль';
         renderProfile();
     }
+
+    if (window.innerWidth <= 768) {
+        document.querySelector('.sidebar').classList.remove('open');
+    }
 }
 
 function saveToLocalStorage() {
@@ -563,3 +567,17 @@ function init() {
 }
 
 window.onload = init;
+
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('open');
+    
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('open');
+            }
+        }, { once: true });
+    });
+}
