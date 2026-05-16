@@ -374,12 +374,12 @@ body {
     }
 
     .content {
-        padding: 20px 16px 120px 16px;
+        padding: 20px 16px 130px 16px;
     }
 
     .player {
-        height: 95px;
-        padding: 10px 12px 20px 12px;
+        height: 96px;
+        padding: 8px 12px 22px 12px;
         gap: 10px;
     }
 
