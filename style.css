@@ -29,6 +29,17 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.sidebar.open {
+    transform: translateX(0);
 }
 
 .logo {
@@ -360,28 +371,33 @@ body {
         max-width: none;
     }
     
-    .sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 280px;
-        height: 100vh;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        z-index: 10000;
-        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.6);
-    }
-    
-    .sidebar.open {
-        transform: translateX(0);
-    }
-    
     .main {
         width: 100%;
     }
     
     .content {
-        padding: 20px 16px;
+        padding: 20px 16px 90px 16px;
+    }
+
+    .player {
+        padding: 0 12px;
+        gap: 12px;
+    }
+
+    .now-playing {
+        width: 140px;
+    }
+
+    .volume-control {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .sidebar {
+        position: relative;
+        transform: translateX(0);
+        box-shadow: none;
     }
 }
 
