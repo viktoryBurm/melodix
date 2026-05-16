@@ -255,7 +255,6 @@ body {
     gap: 16px;
     z-index: 100;
     flex-shrink: 0;
-    padding-bottom: env(safe-area-inset-bottom);
     box-sizing: border-box;
 }
 
@@ -374,22 +373,18 @@ body {
         max-width: none;
     }
 
-    .main {
-        width: 100%;
-    }
-
     .content {
-        padding: 20px 16px 110px 16px;
+        padding: 20px 16px 120px 16px;
     }
 
     .player {
-        height: 80px;
-        padding: 8px 12px env(safe-area-inset-bottom) 12px;
+        height: 95px;
+        padding: 10px 12px 20px 12px;
         gap: 10px;
     }
 
     .now-playing {
-        width: 135px;
+        width: 130px;
     }
 
     .now-cover {
