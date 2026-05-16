@@ -246,15 +246,18 @@ body {
 .btn-add { color: #4ade80; }
 
 .player {
-    height: 98px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
     background: #16161e;
     border-top: 1px solid #2a2a35;
     display: flex;
     align-items: center;
-    padding: 0 16px 18px 16px;
+    padding: 0 16px;
     gap: 12px;
-    z-index: 100;
-    flex-shrink: 0;
+    z-index: 1000;
     box-sizing: border-box;
 }
 
@@ -374,22 +377,17 @@ body {
     }
 
     .content {
-        padding: 20px 16px 130px 16px;
+        padding: 20px 16px 100px 16px;
     }
 
     .player {
-        height: 96px;
-        padding: 8px 12px 22px 12px;
+        height: 88px;
+        padding: 8px 12px 18px 12px;
         gap: 10px;
     }
 
     .now-playing {
         width: 130px;
-    }
-
-    .now-cover {
-        width: 46px;
-        height: 46px;
     }
 
     .volume-control {
