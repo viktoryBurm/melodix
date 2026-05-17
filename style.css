@@ -396,6 +396,9 @@ body {
 }
 
 @media (min-width: 769px) {
+    .player {
+        left: 280px;
+    }
     .sidebar {
         position: relative;
         transform: translateX(0);
